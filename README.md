@@ -23,7 +23,7 @@ The project leverages a set of modern technologies to ensure modularity, perform
 
 ### Directory Description
 
-- **apps/**: Contains the main applications (frontend and backend).
+- **packages/**: Contains the main applications (frontend and backend).
 - **libs/**: Shared libraries for reusability across applications.
 - **tools/**: Custom scripts and utilities for project management.
 
