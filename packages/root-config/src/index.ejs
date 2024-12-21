@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shuffle Clone</title>
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
+    <meta name="importmap-type" use-injector/>
+    <script type="injector-importmap" src="https://6r61g.wiremockapi.cloud/importmap.json"></script>
+
+    <!-- <meta name="import-map-overrides-domains" content="denylist:prod.example.com" /> -->
+
+    <% if (isLocal) { %>
+        <script type="injector-importmap">
+            {
+              "imports": {
+                "@shuffle-clone/root-config": "//localhost:9000/shuffle-clone-root-config.js",
+                "@shuffle-clone/chat": "http://localhost:8080/shuffle-clone-chat.js"
+              }
+            }
+        </script>
+    <% } %>
+    <template id="single-spa-layout">
+        <single-spa-router>
+            <div class="main-content mt-16">
+                <route path="chat">
+                    <application name="@shuffle-clone/chat"></application>
+                </route>
+                <route default>
+                    <h1>Default router</h1>
+                </route>
+            </div>
+        </single-spa-router>
+    </template>
+</head>
+<body>
+<noscript>
+    You need to enable JavaScript to run this app.
+</noscript>
+<script src="https://shuffle-clone.agency-pro.com/import-map-overrides.js"></script>
+<script src="https://shuffle-clone.agency-pro.com/import-map-injector.js"></script>
+<script>
+    window.importMapInjector.initPromise.then(() => {
+        import('@shuffle-clone/root-config');
+    });
+</script>
+<import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{
+  "name": "@shuffle-clone/root-config",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "webpack serve --port 9000 --env isLocal",
+    "test": "exit 0",
+    "check": "biome check --write src/*.ts",
+    "build": "concurrently pnpm:build:*",
+    "build:webpack": "webpack --mode=production",
+    "build:types": "tsc"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/plugin-transform-runtime": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@babel/runtime": "^7.23.3",
+    "@biomejs/biome": "1.9.4",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "html-webpack-plugin": "^5.3.2",
+    "serve": "^14.2.4",
+    "ts-config-single-spa": "^3.0.0",
+    "typescript": "^5.7.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-config-single-spa-ts": "^5.0.3",
+    "webpack-dev-server": "^5.2.0",
+    "webpack-merge": "^6.0.1"
+  },
+  "dependencies": {
+    "@types/systemjs": "^6.1.1",
+    "@types/webpack-env": "^1.16.2",
+    "single-spa": "^6.0.3",
+    "single-spa-layout": "^3.0.0"
+  },
+  "types": "dist/shuffle-clone-root-config.d.ts"
+}
