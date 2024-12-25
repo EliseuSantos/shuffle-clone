@@ -16,6 +16,9 @@ export default class Dependency extends BaseModel {
   @column()
   declare autoUpdate: boolean
 
+  @column()
+  declare status: boolean
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 

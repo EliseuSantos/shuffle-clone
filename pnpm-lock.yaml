@@ -154,6 +154,88 @@ importers:
       '@adonisjs/assembler':
         specifier: ^7.8.2
         version: 7.8.2(typescript@5.7.2)
+      '@adonisjs/prettier-config':
+        specifier: ^1.4.0
+        version: 1.4.0
+      '@adonisjs/tsconfig':
+        specifier: ^1.4.0
+        version: 1.4.0
+      '@biomejs/biome':
+        specifier: 1.9.4
+        version: 1.9.4
+      '@japa/api-client':
+        specifier: ^2.0.4
+        version: 2.0.4(@japa/assert@3.0.0(@japa/runner@3.1.4)(openapi-types@1.3.4))(@japa/runner@3.1.4)
+      '@japa/assert':
+        specifier: ^3.0.0
+        version: 3.0.0(@japa/runner@3.1.4)(openapi-types@1.3.4)
+      '@japa/plugin-adonisjs':
+        specifier: ^3.0.1
+        version: 3.0.1(@adonisjs/core@6.17.0(@adonisjs/assembler@7.8.2(typescript@5.7.2))(@vinejs/vine@3.0.0))(@japa/api-client@2.0.4(@japa/assert@3.0.0(@japa/runner@3.1.4)(openapi-types@1.3.4))(@japa/runner@3.1.4))(@japa/runner@3.1.4)
+      '@japa/runner':
+        specifier: ^3.1.4
+        version: 3.1.4
+      '@swc/core':
+        specifier: 1.10.1
+        version: 1.10.1(@swc/helpers@0.5.15)
+      '@types/luxon':
+        specifier: ^3.4.2
+        version: 3.4.2
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.10.2
+      hot-hook:
+        specifier: ^0.4.0
+        version: 0.4.0
+      pino-pretty:
+        specifier: ^13.0.0
+        version: 13.0.0
+      prettier:
+        specifier: ^3.4.2
+        version: 3.4.2
+      ts-node-maintained:
+        specifier: ^10.9.4
+        version: 10.9.4(@swc/core@1.10.1(@swc/helpers@0.5.15))(@types/node@22.10.2)(typescript@5.7.2)
+      typescript:
+        specifier: ~5.7
+        version: 5.7.2
+
+  packages/manager/build:
+    dependencies:
+      '@adonisjs/auth':
+        specifier: ^9.2.4
+        version: 9.3.0(@adonisjs/assembler@7.8.2(typescript@5.7.2))(@adonisjs/core@6.17.0(@adonisjs/assembler@7.8.2(typescript@5.7.2))(@vinejs/vine@3.0.0))(@adonisjs/lucid@21.5.1(@adonisjs/assembler@7.8.2(typescript@5.7.2))(@adonisjs/core@6.17.0(@adonisjs/assembler@7.8.2(typescript@5.7.2))(@vinejs/vine@3.0.0))(@vinejs/vine@3.0.0)(luxon@3.5.0)(pg@8.13.1))(@japa/api-client@2.0.4(@japa/assert@3.0.0(@japa/runner@3.1.4)(openapi-types@1.3.4))(@japa/runner@3.1.4))(@japa/plugin-adonisjs@3.0.1(@adonisjs/core@6.17.0(@adonisjs/assembler@7.8.2(typescript@5.7.2))(@vinejs/vine@3.0.0))(@japa/api-client@2.0.4(@japa/assert@3.0.0(@japa/runner@3.1.4)(openapi-types@1.3.4))(@japa/runner@3.1.4))(@japa/runner@3.1.4))
+      '@adonisjs/core':
+        specifier: ^6.17.0
+        version: 6.17.0(@adonisjs/assembler@7.8.2(typescript@5.7.2))(@vinejs/vine@3.0.0)
+      '@adonisjs/cors':
+        specifier: ^2.2.1
+        version: 2.2.1(@adonisjs/core@6.17.0(@adonisjs/assembler@7.8.2(typescript@5.7.2))(@vinejs/vine@3.0.0))
+      '@adonisjs/lucid':
+        specifier: ^21.5.1
+        version: 21.5.1(@adonisjs/assembler@7.8.2(typescript@5.7.2))(@adonisjs/core@6.17.0(@adonisjs/assembler@7.8.2(typescript@5.7.2))(@vinejs/vine@3.0.0))(@vinejs/vine@3.0.0)(luxon@3.5.0)(pg@8.13.1)
+      '@vinejs/vine':
+        specifier: ^3.0.0
+        version: 3.0.0
+      adonis-autoswagger:
+        specifier: ^3.64.0
+        version: 3.64.0
+      adonis-jsonable:
+        specifier: ^0.2.1
+        version: 0.2.1(@adonisjs/fold@10.1.3)
+      luxon:
+        specifier: ^3.5.0
+        version: 3.5.0
+      pg:
+        specifier: ^8.13.1
+        version: 8.13.1
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
+    devDependencies:
+      '@adonisjs/assembler':
+        specifier: ^7.8.2
+        version: 7.8.2(typescript@5.7.2)
       '@adonisjs/eslint-config':
         specifier: ^2.0.0-beta.6
         version: 2.0.0-beta.7(@types/eslint@9.6.1)(eslint@9.17.0)(prettier@3.4.2)(typescript@5.7.2)

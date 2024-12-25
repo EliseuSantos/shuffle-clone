@@ -1,25 +1,27 @@
 import Dependency from '#models/dependency'
-import DependencyVersion from '#models/dependency_version'
 import { Infer } from '@vinejs/vine/types'
 import { createDependencyValidator, createScopeValidator } from '#validators/dependency_validator'
 import DependencyScope from '#models/dependency_scope'
+import { getActiveVersion } from '../utils/index.js'
 
 export class DependencyService {
   public async getImportMap() {
-    const dependencies = await Dependency.query()
-      .where('external', true)
-      .preload('versions', (query) => query.where('status', true))
+    const dependencies = await Dependency.query().preload('versions', (query) =>
+      query.where('status', true)
+    )
 
     const imports = Object.fromEntries(
       dependencies.flatMap((dependency) => {
-        const activeDependencyVersion = dependency.versions[0]
+        const activeDependencyVersion = getActiveVersion(dependency.versions)
+
         return activeDependencyVersion ? [[dependency.name, activeDependencyVersion.url]] : []
       })
     )
 
     const integrity = Object.fromEntries(
       dependencies.flatMap((dependency) => {
-        const activeDependencyVersion = dependency.versions[0]
+        const activeDependencyVersion = getActiveVersion(dependency.versions)
+
         return activeDependencyVersion?.integrity
           ? [[activeDependencyVersion.url, activeDependencyVersion.integrity]]
           : []
@@ -46,43 +48,24 @@ export class DependencyService {
 
   public async registerPackage(payload: Infer<typeof createDependencyValidator>) {
     const { name, version, url, status, integrity } = payload
-
-    const dependency = await Dependency.firstOrCreate(
-      { name },
-      { external: true, autoUpdate: false }
-    )
-
-    const versionExists = await DependencyVersion.query()
-      .where('dependencyId', dependency.id)
-      .andWhere('version', version)
-      .first()
-
-    if (versionExists) {
-      throw new Error(`DependencyVersion ${version} already exists for dependency ${name}`)
+    let dependency = await Dependency.findBy('name', name)
+    if (!dependency) {
+      dependency = new Dependency()
+      dependency.name = name
+      await dependency.save()
     }
 
-    await DependencyVersion.create({
-      dependencyId: dependency.id,
-      version,
-      url,
-      status,
-      integrity,
-    })
+    try {
+      await dependency.addDependencyVersion(version, url, status, integrity)
+    } catch (error) {
+      throw new Error(`Error adding version: ${error.message}`)
+    }
 
     if (status) {
-      await this.setActiveDependencyVersion(dependency, version)
+      await dependency.setActiveDependencyVersion(version)
     }
 
     return dependency
-  }
-
-  private async setActiveDependencyVersion(dependency: Dependency, version: string) {
-    await DependencyVersion.query().where('dependencyId', dependency.id).update({ status: false })
-
-    await DependencyVersion.query()
-      .where('dependencyId', dependency.id)
-      .andWhere('version', version)
-      .update({ status: true })
   }
 
   public async registerScope(payload: Infer<typeof createScopeValidator>) {
