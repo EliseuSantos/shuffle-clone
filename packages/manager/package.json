@@ -8,7 +8,7 @@
     "start": "node bin/server.js",
     "build": "node ace build",
     "dev": "node ace serve --watch",
-    "test": "node ace test",
+    "test": "cp .env.example .env.test && node ace test",
     "check": "biome check --write **/*.ts",
     "typecheck": "tsc --noEmit"
   },
