@@ -6,21 +6,21 @@ export default class extends BaseSeeder {
     const scopes = [
       {
         name: 'process',
-        path: 'https://react.microfrontends.app/deps/',
+        path: 'http://localhost:3333/assets/',
         status: true,
-        url: 'https://react.microfrontends.app/deps/npm:@jspm/core@2.1.0/nodelibs/browser/process.js'
+        url: 'http://localhost:3333/assets/process/process.js'
       },
        {
         name: 'scheduler',
-        path: 'https://react.microfrontends.app/deps/',
+        path: 'http://localhost:3333/assets/',
         status: true,
-        url: 'https://react.microfrontends.app/deps/npm:scheduler@0.25.0/dev.index.js'
+        url: 'http://localhost:3333/assets/scheduler/dev.index.js'
       },
       {
         name: 'tslib',
-        path: 'https://react.microfrontends.app/deps/',
+        path: 'http://localhost:3333/assets/',
         status: true,
-        url: 'https://react.microfrontends.app/deps/npm:tslib@2.8.1/tslib.es6.mjs'
+        url: 'http://localhost:3333/assets/tslib/tslib.es6.mjs'
       }
     ];
 

@@ -32,4 +32,10 @@ router
 		router.post("deploy", [DependencyController, "deployDependency"]);
 		router.get("importmap", [DependencyController, "getImportMap"]);
 	})
-	.prefix("dependency");
+	.prefix("deps");
+
+router
+	.group(() => {
+		router.get("", [DependencyController, "getStatics"]);
+	})
+	.prefix("statics");

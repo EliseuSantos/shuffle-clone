@@ -10,7 +10,7 @@ export default class extends BaseSeeder {
 				status: true,
 				version: {
 					version: "19.0.0",
-					url: "https://react.microfrontends.app/deps/npm:react@19.0.0/dev.index.js",
+					url: "http://localhost:3333/assets/react/dev.index.js",
 					integrity: "",
 					status: true,
 				},
@@ -20,7 +20,7 @@ export default class extends BaseSeeder {
 				status: true,
 				version: {
 					version: "19.0.0",
-					url: "https://react.microfrontends.app/deps/npm:react-dom@19.0.0/dev.index.js",
+					url: "http://localhost:3333/assets/react-dom/dev.index.js",
 					integrity: "",
 					status: true,
 				},
@@ -30,7 +30,7 @@ export default class extends BaseSeeder {
 				status: true,
 				version: {
 					version: "19.0.0",
-					url: "https://react.microfrontends.app/deps/npm:react-dom@19.0.0/dev.client.js",
+					url: "http://localhost:3333/assets/react-dom/dev.client.js",
 					integrity: "",
 					status: true,
 				},
@@ -40,7 +40,27 @@ export default class extends BaseSeeder {
 				status: true,
 				version: {
 					version: "7.0.0-beta.1",
-					url: "https://react.microfrontends.app/deps/npm:single-spa@7.0.0-beta.1/lib/esm/single-spa.min.js",
+					url: "http://localhost:3333/assets/single-spa/single-spa.min.js",
+					integrity: "",
+					status: true,
+				},
+			},
+      {
+				name: "@shuffle-clone/root-config",
+				status: true,
+				version: {
+					version: "1.0.0",
+					url: "http://localhost:9000/shuffle-clone-root-config.js",
+					integrity: "",
+					status: true,
+				},
+			},
+      {
+				name: "@shuffle-clone/chat",
+				status: true,
+				version: {
+					version: "1.0.0",
+					url: "http://localhost:8080/shuffle-clone-chat.js",
 					integrity: "",
 					status: true,
 				},

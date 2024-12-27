@@ -1,5 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import {createDependencyValidator, createScopeValidator} from '#validators/dependency_validator'
+import { createDependencyValidator, createScopeValidator } from '#validators/dependency_validator'
 
 import { DependencyService } from '#services/dependency_service'
 
@@ -14,7 +14,22 @@ export default class DependenciesController {
    */
   public async getImportMap({ response }: HttpContext) {
     const importMap = await this.dependencyService.getImportMap()
-    return response.json(importMap)
+    return response.header('content-type', 'application/importmap+json').json(importMap)
+  }
+
+  /**
+   * @getStatics
+   * @tag Dependency
+   * @responseBody <200>
+   * @description Returns file
+   */
+  public async getStatics({ params, response }: HttpContext) {
+    const file = await this.dependencyService.getFileStatic(params.filename)
+    if(!file) {
+      return response.notFound()
+    }
+
+    return response.download(file)
   }
 
   /**

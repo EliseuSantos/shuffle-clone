@@ -53,6 +53,7 @@
     "@adonisjs/core": "^6.17.0",
     "@adonisjs/cors": "^2.2.1",
     "@adonisjs/lucid": "^21.5.1",
+    "@adonisjs/static": "^1.1.1",
     "@vinejs/vine": "^3.0.0",
     "adonis-autoswagger": "^3.64.0",
     "adonis-jsonable": "^0.2.1",
