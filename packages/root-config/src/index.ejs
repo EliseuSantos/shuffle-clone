@@ -8,9 +8,9 @@
     <meta http-equiv="Content-Security-Policy"
           content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
     <meta name="importmap-type" use-injector/>
-    <script type="injector-importmap" src="https://6r61g.wiremockapi.cloud/importmap.json"></script>
+    <script type="injector-importmap" src="http://localhost:3333/deps/importmap"></script>
 
-    <!-- <meta name="import-map-overrides-domains" content="denylist:prod.example.com" /> -->
+    <meta name="import-map-overrides-domains" content="denylist:shuffle.eliseu.dev"/>
 
     <% if (isLocal) { %>
         <script type="injector-importmap">
@@ -39,8 +39,8 @@
 <noscript>
     You need to enable JavaScript to run this app.
 </noscript>
-<script src="https://shuffle-clone.agency-pro.com/import-map-overrides.js"></script>
-<script src="https://shuffle-clone.agency-pro.com/import-map-injector.js"></script>
+<script src="http://localhost:3333/assets/import-map-overrides/import-map-overrides.js"></script>
+<script src="http://localhost:3333/assets/import-map-injector/import-map-injector.js"></script>
 <script>
     window.importMapInjector.initPromise.then(() => {
         import('@shuffle-clone/root-config');
